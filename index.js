@@ -47,4 +47,5 @@ function getMonthlyWage() {
   return monthlyPay;
 }
 
+// uc5
 console.log("Monthly pay:", getMonthlyWage());
