@@ -1,4 +1,4 @@
-const {fullTime: fulltime, halfTime: halftime} = require('./data');
+const {fullTime: fulltime, halfTime: parttime} = require('./data');
 
 console.log("Welcome to Employee Wage Computation"); // uc1
 
