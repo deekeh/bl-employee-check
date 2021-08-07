@@ -95,6 +95,5 @@ function getRestrictedWage() {
   }
 }
 
-// const restrictedWage = getRestrictedWage();
 const restrictedWage = getRestrictedWage();
 console.log(`Monthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/160\nWorking days: ${restrictedWage.workingDays}/20`);
