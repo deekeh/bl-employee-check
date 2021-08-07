@@ -24,6 +24,7 @@ switch (empCase) {
 
 console.log("Employee wage:", hrs*20);
 
+// uc4
 function getMonthlyWage() {
   let monthlyPay = 0;
   const parttime = 4, fulltime = 8;
