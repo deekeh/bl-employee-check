@@ -1,3 +1,5 @@
+const {fullTime: fulltime, halfTime: halftime} = require('./data');
+
 console.log("Welcome to Employee Wage Computation"); // uc1
 
 // uc2
@@ -6,8 +8,8 @@ if (empchk) console.log("employee is present");
 else console.log("employee is absent");
 
 // uc3
-const fulltime = 8, parttime = 4;
-let hrs;
+// const fulltime = 8, parttime = 4;
+let hrs = 0;
 let empCase = Math.floor(Math.random() * 10) % 3;
 
 switch (empCase) {
@@ -49,3 +51,7 @@ function getMonthlyWage() {
 
 // uc5
 console.log("Monthly pay:", getMonthlyWage());
+
+function getRestrictedWage() {
+
+}
