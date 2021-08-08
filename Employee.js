@@ -115,4 +115,4 @@ class Employee {
 const dk = new Employee();
 
 const restrictedWage = dk.getRestrictedWage();
-console.log(`Monthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/160\nWorking days: ${restrictedWage.workingDays}/20`);
+console.log(`Monthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/${maxHours}\nWorking days: ${restrictedWage.workingDays}/${maxDays}`);
