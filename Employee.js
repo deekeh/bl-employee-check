@@ -65,7 +65,7 @@ class Employee {
       monthlyPay += hrs * dailyWage;
     }
     // console.log("Attendance:", this.attendance);
-    // UNCOMMENT THE ABOVE LINE (67) TO  THE ARRAY OF ATTENDANCE
+    // UNCOMMENT THE ABOVE LINE (67) TO PRINT THE ARRAY OF ATTENDANCE
     // 0 - PARTTIME
     // 1 - FULLTIME
     // 2 - LEAVE
