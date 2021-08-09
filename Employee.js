@@ -10,6 +10,7 @@ class Employee {
   constructor() {
     console.log("Welcome to Employee Wage Computation"); // uc1
     this.attendance = [];
+    this.wages = [];
   }
 
   get randomAttendance() {
@@ -101,7 +102,7 @@ class Employee {
           break;
       }
       monthlyPay += currentWorking * dailyWage;
-
+      this.wages.push(currentWorking * dailyWage);
     }
     // return result
     return {
@@ -115,6 +116,6 @@ class Employee {
 const dk = new Employee();
 
 const restrictedWage = dk.getRestrictedWage();
-console.log(`Monthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/${maxHours}\nWorking days: ${restrictedWage.workingDays}/${maxDays}`);
+console.log(`Daily pays: ${dk.wages}\nMonthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/${maxHours}\nWorking days: ${restrictedWage.workingDays}/${maxDays}`);
 
 // console.log(dk.checkAttendance());
