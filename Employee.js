@@ -111,11 +111,75 @@ class Employee {
       workingDays
     }
   }
+
+  // uc9a - Calc total Wage using Array forEach or reduce method
+  get totalWage() {
+    return this.wages.reduce((a,b) => a+b);
+  }
+
+  // uc9b - Show the Day along with Daily Wage using Array map helper function
+  get detailedDailyWage() {
+    return this.wages.map((wage, idx) => {
+      return {
+        day: idx+1,
+        wage,
+      };
+    });
+  }
+
+  // uc9c - Show Days when Full time wage of 160 were earned using filter function
+  get fullTimeDays() {
+    return this.detailedDailyWage.filter(day => day.wage===160);
+  }
+
+  // uc9d - Find the first occurrence when Full Time Wage was earned using find function
+  get firstFullTimeDay() {
+    return this.detailedDailyWage.find(day => day.wage===160);
+  }
+
+  // uc9e - Check if Every Element of Full Time Wage is truly holding Full time wage [under construction]
+  checkTrulyFullTimeWage() {
+    return true;
+  }
+
+  // uc9f - Check if there is any Part Time Wage
+  get partTimeDays() {
+    return this.detailedDailyWage.filter(day => day.wage===80);
+  }
+
+  // uc9g - Find the number of days the Employee Worked
+  get workingDays() {
+    return this.detailedDailyWage.filter(day => day.wage!==0).length;
+  }
 }
 
 const dk = new Employee();
 
 const restrictedWage = dk.getRestrictedWage();
 console.log(`Daily pays: ${dk.wages}\nMonthly pay: ${restrictedWage.monthlyPay}\nWorking hours: ${restrictedWage.workingHours}/${maxHours}\nWorking days: ${restrictedWage.workingDays}/${maxDays}`);
+
+console.log('\n----------\n');
+
+// uc9a
+console.log(`Total wage: ${dk.totalWage}`);
+
+// uc9b
+console.log("Detailed daily wage:");
+dk.detailedDailyWage.forEach(day => console.log(`Day: ${day.day}, Wage: ${day.wage}`));
+
+// uc9c
+console.log(`Full time days: ${dk.fullTimeDays.map(d => d.day)}`);
+
+// uc9d
+console.log(`First full time day: ${dk.firstFullTimeDay.day}`);
+
+// uc9e
+// console.log(dk.checkTrulyFullTimeWage());
+
+// uc9f
+console.log(`Part time days: ${dk.partTimeDays.map(d => d.day)}`);
+
+// uc9g
+console.log(`Total working days: ${dk.workingDays}`);
 
 // console.log(dk.checkAttendance());
