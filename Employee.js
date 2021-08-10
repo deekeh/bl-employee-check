@@ -161,6 +161,19 @@ class Employee {
     wageMap.set('Total wage', this.totalWage);
     return wageMap;
   }
+
+  // uc11 - object creation
+  get allWageObject() {
+    const allWageDetails = {};
+    allWageDetails.wages = this.detailedDailyWage.map(day => {
+      return {
+        day: day.day,
+        wage: day.wage,
+        hours: day.wage/20,
+      }
+    });
+    return allWageDetails;
+  }
 }
 
 const dk = new Employee();
@@ -195,5 +208,9 @@ console.log(`Total working days: ${dk.workingDays}`);
 // uc10
 console.log("Wage map:");
 console.log(dk.wageMap);
+
+// uc11
+console.log("Wage object:");
+console.log(dk.allWageObject);
 
 // console.log(dk.checkAttendance());
