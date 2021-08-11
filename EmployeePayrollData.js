@@ -36,9 +36,11 @@ console.log('\n----- extended employee data -----\n');
 const NewEmployeePayrollData = class extends EmployeePayrollData {
     // constructor(id=0, name='User', salary=0, gender='female', startDate='10 Aug 2021') {
     constructor(...params) {
-        super(...params.slice(0,2));
+        super(...params.slice(0,3));
         this.gender = params[3];
         this.startDate = params[4];
+        this.phone = params[5];
+        this.mail = params[6];
     }
 
     get eGender() {
@@ -47,6 +49,12 @@ const NewEmployeePayrollData = class extends EmployeePayrollData {
     get eStartDate() {
         return this.startDate;
     }
+    get eMail() {
+        return this.mail;
+    }
+    get ePhone() {
+        return this.phone;
+    }
 
     set eGender(gender) {
         this.gender = gender;
@@ -54,11 +62,32 @@ const NewEmployeePayrollData = class extends EmployeePayrollData {
     set eStartDate(startDate) {
         this.startDate = startDate;
     }
+    set eMail(mail) {
+        this.mail = mail;
+    }
+    set ePhone(phone) {
+        this.phone = phone;
+    }
+
+    checkEmployeeDetails() {
+        const errors = [];
+        const emailRegex = /^([a-zA-Z0-9]+[a-zA-Z0-9._]+[a-zA-Z0-9])(@)([a-zA-Z0-9]+)([.])([a-zA-Z]{2,})([.][a-zA-Z]{2,})*$/;
+        const nameRegex = /^([A-Z][a-z]{2,})$/;
+        const genderRegex = /^([mf]|male|female)$/;
+        const phoneRegex = /^[9][1][ ][0-9]{10}$/;
+        if (!nameRegex.test(this.name)) errors.push('name');
+        if (!emailRegex.test(this.mail)) errors.push('email');
+        if (!phoneRegex.test(this.phone)) errors.push('phone');
+        if (!genderRegex.test(this.gender)) errors.push('gender');
+        return errors.length===0 ? "Details verified successfully": `Errors found in ${errors}`;
+    }
 };
 
-const niraj = new NewEmployeePayrollData(1, 'Niraj', 16_000, 'male', '20 Jul 2021');
+const niraj = new NewEmployeePayrollData(1, 'Niraj', 16_000, 'male', '20 Jul 2021', '91 9809099899', 'niraj@email.com');
 
 niraj.eStartDate = '21 Jul 2021';
 
 console.log('New Employee details:');
-console.log(`Name: ${niraj.eName}, ID: ${niraj.eId}, Salary: ${niraj.eSalary}, Gender: ${niraj.eGender}, Start date: ${niraj.eStartDate}`);
+console.log(`Name: ${niraj.eName}, ID: ${niraj.eId}, Salary: ${niraj.eSalary}, Gender: ${niraj.eGender}, Start date: ${niraj.eStartDate}, Mail: ${niraj.eMail}, Phone: ${niraj.ePhone}`);
+
+console.log(niraj.checkEmployeeDetails());
