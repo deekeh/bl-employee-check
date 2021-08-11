@@ -79,7 +79,7 @@ const NewEmployeePayrollData = class extends EmployeePayrollData {
         if (!emailRegex.test(this.mail)) errors.push('email');
         if (!phoneRegex.test(this.phone)) errors.push('phone');
         if (!genderRegex.test(this.gender)) errors.push('gender');
-        return errors.length===0 ? "Details verified successfully": `Errors found in ${errors}`;
+        return errors.length===0 ? "Details verified successfully": new Error(`Errors found in ${errors}`);
     }
 };
 
@@ -90,4 +90,9 @@ niraj.eStartDate = '21 Jul 2021';
 console.log('New Employee details:');
 console.log(`Name: ${niraj.eName}, ID: ${niraj.eId}, Salary: ${niraj.eSalary}, Gender: ${niraj.eGender}, Start date: ${niraj.eStartDate}, Mail: ${niraj.eMail}, Phone: ${niraj.ePhone}`);
 
-console.log(niraj.checkEmployeeDetails());
+try {
+    console.log(niraj.checkEmployeeDetails());
+}
+catch(err) {
+    console.error(err);
+}
